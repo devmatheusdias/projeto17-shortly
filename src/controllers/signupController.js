@@ -1,4 +1,4 @@
-import { db } from '../database/database.connection.js';
+import postSignup from '../repository/signup.repository.js'
 
 export async function postSignup(req, res){
     try {

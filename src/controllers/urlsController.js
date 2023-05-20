@@ -1,4 +1,4 @@
-import { db } from '../database/database.connection.js';
+import { postUrl, getUrlId, getShortUrl, deleteUrl } from "../repository/urls.repository.js"
 
 export async function postUrl(req, res){
     try {

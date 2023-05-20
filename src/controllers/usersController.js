@@ -1,4 +1,4 @@
-import { db } from '../database/database.connection.js';
+import { getUsers } from "../repository/user.repository.js"
 
 export async function getUsers(req, res){
     try {
