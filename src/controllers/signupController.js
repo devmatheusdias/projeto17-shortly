@@ -6,6 +6,6 @@ export async function Signup(req, res){
         await createUserDB(req.body);
         res.sendStatus(201)
     } catch (error) {
-        res.status(500).send(err.message)
+        res.status(500).send(error.message)
      }
 }
