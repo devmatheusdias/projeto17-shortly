@@ -1,4 +1,4 @@
-import getRanking from '../repository/rankings.repository.js'
+import {getRankingDB} from '../repository/rankings.repository.js'
 
 export async function getRanking(req, res){
     try {

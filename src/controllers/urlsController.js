@@ -1,6 +1,6 @@
 import { postUrl, getUrlId, getShortUrl, deleteUrl } from "../repository/urls.repository.js"
 
-export async function postUrl(req, res){
+export async function Url(req, res){
     try {
         
     } catch (error) {
@@ -8,7 +8,7 @@ export async function postUrl(req, res){
     }
 }
 
-export async function getUrlId(req, res){
+export async function UrlId(req, res){
     try {
         
     } catch (error) {
@@ -16,7 +16,7 @@ export async function getUrlId(req, res){
     }
 }
 
-export async function getShortUrl(req, res){
+export async function ShortUrl(req, res){
     try {
         
     } catch (error) {
@@ -24,7 +24,7 @@ export async function getShortUrl(req, res){
     }
 }
 
-export async function deleteUrl(req, res){
+export async function UrlDelete(req, res){
     try {
         
     } catch (error) {

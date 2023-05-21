@@ -1,9 +1,11 @@
-import postSignup from '../repository/signup.repository.js'
+import {createUserDB} from '../repository/signup.repository.js'
 
-export async function postSignup(req, res){
-    try {
-        
+export async function Signup(req, res){
+
+     try {
+        await createUserDB(req.body);
+        res.sendStatus(201)
     } catch (error) {
-        res.send(error.message)
-    }
+        res.status(500).send(err.message)
+     }
 }

@@ -1,4 +1,4 @@
-import { getUsers } from "../repository/user.repository.js"
+import { getUsersDB } from "../repository/user.repository.js"
 
 export async function getUsers(req, res){
     try {

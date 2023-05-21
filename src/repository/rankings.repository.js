@@ -1,5 +1,5 @@
 import { db } from '../database/database.connection.js';
 
-export function getRanking(){
+export function getRankingDB(){
     // const result = db.query
 }

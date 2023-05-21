@@ -1,5 +1,5 @@
 import { db } from '../database/database.connection.js';
 
-export function getUsers(){
+export function getUsersDB(){
     // const result = db.query
 }
