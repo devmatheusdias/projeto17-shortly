@@ -7,7 +7,7 @@ export async function createSessionDB(body, res){
     const token = uuid();
 
     const result = await db.query(`
-        INSERT INTO sessions (userid, token)
+        INSERT INTO sessions ("userId", token)
             VALUES ($1, $2);`,
             [res, token])
  

@@ -2,7 +2,8 @@ import { postUrl, getUrlId, getShortUrl, deleteUrl } from "../repository/urls.re
 
 export async function Url(req, res){
     try {
-        
+        const result = postUrl(req.body)
+        res.send(result)
     } catch (error) {
         res.send(error.message)
     }

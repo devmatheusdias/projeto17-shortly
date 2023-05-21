@@ -1,6 +1,7 @@
 import { db } from '../database/database.connection.js';
 
-export function postUrl(){
+export function postUrl(body){
+    return body
 }
 
 export function getUrlId(){
