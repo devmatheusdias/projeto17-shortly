@@ -3,6 +3,7 @@ import {Url, UrlId, ShortUrl, UrlDelete} from "../controllers/urlsController.js"
 import { urlSchema } from "../schemas/urls.schema.js";
 import { authValidade } from "../middlewares/auth.middleware.js";
 import { validateSchema } from "../middlewares/validateSchema.middleware.js";
+import { deleteUrl } from "../middlewares/deleteUrl.middleware.js";
 
 const urlsRouter = Router();
 
@@ -12,6 +13,6 @@ urlsRouter.get('/urls/:id', UrlId)
 
 urlsRouter.get('/urls/open/:shortUrl', ShortUrl)
 
-urlsRouter.delete('/urls/:id', UrlDelete)
+urlsRouter.delete('/urls/:id', authValidade, deleteUrl, UrlDelete)
 
 export default urlsRouter

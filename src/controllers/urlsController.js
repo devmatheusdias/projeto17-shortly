@@ -23,15 +23,22 @@ export async function UrlId(req, res){
 
 export async function ShortUrl(req, res){
     try {
+        const result = await getShortUrl(req.params);
+
+        if(!result) res.status(404).send('Url não encontrada')
         
+        res.send(result)
+
     } catch (error) {
         res.send(error.message)
     }
 }
 
 export async function UrlDelete(req, res){
+    
     try {
-        
+        const result = await deleteUrl(req.params, res.locals.token)
+        res.status(201).send(console.log(result))
     } catch (error) {
         res.send(error.message)
     }

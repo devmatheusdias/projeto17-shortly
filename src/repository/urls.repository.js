@@ -33,9 +33,29 @@ export async function getUrlId(params) {
     return url.rows[0];
 }
 
-export function getShortUrl() {
+export async function getShortUrl(params) {
+    const shorturl = params;
+
+    const url = await db.query(`
+        UPDATE urls SET views = views + 1 WHERE shorturl=$1;`,[shorturl]
+    )
+
+    return url;
 }
 
-export function deleteUrl() {
+export async function deleteUrl(params, res) {
+
+    const id = Number(params);
+
+    const user = await db.query(`
+     SELECT sessions."userId" FROM sessions WHERE token=$1;`, [res]
+    )
+
+    const userId = Number(user.rows[0].userId)
+
+    const urls = await db.query(`
+        SELECT * FROM urls WHERE id=$1 AND "userId"=$2;`, [id, userId])
+
+    return urls
 }
 
