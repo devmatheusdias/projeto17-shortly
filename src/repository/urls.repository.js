@@ -34,10 +34,10 @@ export async function getUrlId(params) {
 }
 
 export async function getShortUrl(params) {
-    const shorturl = params;
+    const {shorturl} = params;
 
     const url = await db.query(`
-        UPDATE urls SET views = views + 1 WHERE shorturl=$1;`,[shorturl]
+        UPDATE urls SET views = views +1 WHERE shorturl=$1;`,[shorturl]
     )
 
     return url;
