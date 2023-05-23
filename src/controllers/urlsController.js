@@ -25,7 +25,7 @@ export async function ShortUrl(req, res){
     try {
         const result = await getShortUrl(req.params);
 
-        if(!result) res.status(404).send('Url não encontrada')
+        if(result.rowCount === 0) return res.status(404).send('Url não encontrada')
         
         res.send(result)
 
@@ -38,6 +38,9 @@ export async function UrlDelete(req, res){
     
     try {
         const result = await deleteUrl(req.params, res.locals.token)
+
+        if(result.rowCount === 0) res.status(204).send('url não encontrada')
+        
         res.status(201).send(console.log(result))
     } catch (error) {
         res.send(error.message)

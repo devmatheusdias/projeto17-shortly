@@ -34,10 +34,10 @@ export async function getUrlId(params) {
 }
 
 export async function getShortUrl(params) {
-    const {shorturl} = params;
+    const {shortUrl} = params;
 
     const url = await db.query(`
-        UPDATE urls SET views = views +1 WHERE shorturl=$1;`,[shorturl]
+        UPDATE urls SET views = urls.views + 1 WHERE shorturl=$1;`,[shortUrl]
     )
 
     return url;
@@ -45,17 +45,15 @@ export async function getShortUrl(params) {
 
 export async function deleteUrl(params, res) {
 
-    const id = Number(params);
+    const {id} = params;
 
     const user = await db.query(`
      SELECT sessions."userId" FROM sessions WHERE token=$1;`, [res]
     )
 
-    const userId = Number(user.rows[0].userId)
-
     const urls = await db.query(`
-        SELECT * FROM urls WHERE id=$1 AND "userId"=$2;`, [id, userId])
+        DELETE FROM urls WHERE id=$1 AND userid=$2;`, [id, user.rows[0].userId])
 
-    return urls
+    return urls.rows
 }
 
